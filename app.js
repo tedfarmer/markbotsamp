@@ -17,6 +17,9 @@ var connector = new builder.ChatConnector({
     appPassword: process.env.MICROSOFT_APP_PASSWORD
 });
 server.post('/api/messages', connector.listen());
+server.get('/api/test', function (req,res) {
+res.send('hello');
+});
 
 var bot = new builder.UniversalBot(connector, function (session) {
   //  session.send('hey, I did not understand \'%s\'. Type \'help\' if you need assistance.', session.message.text);
